@@ -29,6 +29,7 @@ class SlotMachine:
         }
 
     def spin(self, bet, auto_spin=False):
+        os.system("cls" if os.name == "nt" else "clear")
         print("Spinning... 🔄")
         if not auto_spin:
             time.sleep(1)
@@ -106,7 +107,7 @@ class Game:
         self.save_file = "SaveData/balance.json"
         self.balance = self.load_balance()
         self.auto_spin = False
-        self.bet = 0
+        self.bet = 1
         self.slot_machine = SlotMachine()
         atexit.register(self.save_balance)
         signal.signal(signal.SIGINT, self.signal_handler)
@@ -133,29 +134,27 @@ class Game:
     def play(self):
         while True:
             print(f"Balance: ${self.balance} 💸")
+            print(f"Bet : ${self.bet} 💸")
             if self.balance <= 0:
                 print("😔 You've run out of money! 😔")
                 print("Here's $10 to play again! 🎁")
                 self.balance = 10
-            if self.bet == 0:
-                self.bet = int(input("Enter your bet for all spins: "))
-                if self.bet > self.balance:
-                    print("Insufficient balance!")
-                    self.bet = 0
-                    continue
             if not self.auto_spin:
                 print("1. Press Enter to spin the slot machine\n2. type 'auto' to enable auto spin\n3. type 'bet' to change bet\n4. type 'exit' to quit")
                 action = input("")
                 if action.lower() == 'auto':
+                    os.system("cls" if os.name == "nt" else "clear")
                     self.auto_spin = True
                     num_spins = int(input("Enter the number of auto spins: "))
                 elif action.lower() == 'bet':
+                    os.system("cls" if os.name == "nt" else "clear")
                     self.bet = int(input("Enter your new bet: "))
                     if self.bet > self.balance:
                         print("Insufficient balance!")
                         self.bet = 0
                     continue
                 elif action.lower() == 'exit':
+                    os.system("cls" if os.name == "nt" else "clear")
                     self.save_balance()
                     break
             if self.auto_spin:
