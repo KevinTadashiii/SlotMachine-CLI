@@ -123,6 +123,10 @@ class Game:
                 save_data = json.load(f)
                 return save_data["balance"]
         except FileNotFoundError:
+            # Create a new save file with a default balance
+            os.makedirs(os.path.dirname(self.save_file), exist_ok=True)
+            with open(self.save_file, "w") as f:
+                json.dump({"balance": 100}, f)
             return 100
 
     def save_balance(self):
