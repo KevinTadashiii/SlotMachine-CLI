@@ -153,6 +153,7 @@ class Game:
                     if self.bet > self.balance:
                         print("Insufficient balance!")
                         self.bet = 0
+                    continue
                 elif action.lower() == 'exit':
                     self.save_balance()
                     print("👋 Thanks for playing! 👋")
