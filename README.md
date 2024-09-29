@@ -9,7 +9,6 @@ A simple slot machine game written in Python.
 
 ## Requirements
 - Python 3.x
-- `json` and `os` modules (included with Python)
 
 ## How to Play
 1. Run the game by executing `main.py`
