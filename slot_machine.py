@@ -148,21 +148,27 @@ class Game:
                 if action.lower() == 'auto':
                     self.auto_spin = True
                     num_spins = int(input("Enter the number of auto spins: "))
+                elif action.lower() == 'bet':
+                    self.bet = int(input("Enter your new bet: "))
+                    if self.bet > self.balance:
+                        print("Insufficient balance!")
+                        self.bet = 0
                 elif action.lower() == 'exit':
                     self.save_balance()
                     print("👋 Thanks for playing! 👋")
                     break
             if self.auto_spin:
-                if num_spins > 0:
-                    print(f"Auto spin {num_spins} 🔄")
-                    num_spins -= 1
-                    self.balance += self.slot_machine.spin(self.bet, auto_spin=True)
-                    if self.balance <= 0:
-                        self.save_balance()
-                        print("😔 You've run out of money! 😔")
-                        break
-                else:
-                    self.auto_spin = False
+                if 'num_spins' in locals():
+                    if num_spins > 0:
+                        print(f"Auto spin {num_spins} 🔄")
+                        num_spins -= 1
+                        self.balance += self.slot_machine.spin(self.bet, auto_spin=True)
+                        if self.balance <= 0:
+                            self.save_balance()
+                            print("😔 You've run out of money! 😔")
+                            break
+                    else:
+                        self.auto_spin = False
             else:
                 self.balance += self.slot_machine.spin(self.bet)
                 if self.balance <= 0:
