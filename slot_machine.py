@@ -143,7 +143,7 @@ class Game:
                     self.bet = 0
                     continue
             if not self.auto_spin:
-                print("Press Enter to spin the slot machine\ntype 'auto' to enable auto spin\ntype 'exit' to quit")
+                print("1. Press Enter to spin the slot machine\n2. type 'auto' to enable auto spin\n3. type 'bet' to change bet\n4. type 'exit' to quit")
                 action = input("")
                 if action.lower() == 'auto':
                     self.auto_spin = True
