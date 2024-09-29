@@ -113,6 +113,7 @@ class Game:
 
     def signal_handler(self, sig, frame):
         self.save_balance()
+        os.system("cls" if os.name == "nt" else "clear")
         print("\n👋 Thanks for playing! 👋")
         sys.exit(0)
 
@@ -185,6 +186,7 @@ def main():
         choice = input("Enter your choice: ").lower()
         if choice in ["1", "play"]:
             game = Game()
+            os.system("cls" if os.name == "nt" else "clear")
             game.play()
         elif choice in ["2", "exit"]:
             print("👋 Thanks for playing! 👋")
