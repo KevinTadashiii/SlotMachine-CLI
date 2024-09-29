@@ -156,7 +156,6 @@ class Game:
                     continue
                 elif action.lower() == 'exit':
                     self.save_balance()
-                    print("👋 Thanks for playing! 👋")
                     break
             if self.auto_spin:
                 if 'num_spins' in locals():
