@@ -166,6 +166,21 @@ class Game:
                     print("😔 You've run out of money! 😔")
                     break
 
+def main():
+    print("Slot Machine Game 🎰")
+    print("-----------------")
+    while True:
+        print("1. Play 🎲")
+        print("2. Exit 👋")
+        choice = input("Enter your choice: ")
+        if choice == "1":
+            game = Game()
+            game.play()
+        elif choice == "2":
+            print("👋 Thanks for playing! 👋")
+            break
+        else:
+            print("Invalid choice. Please try again.")
+
 if __name__ == "__main__":
-    game = Game()
-    game.play()
+    main()
