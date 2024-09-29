@@ -29,7 +29,6 @@ class SlotMachine:
         }
 
     def spin(self, bet, auto_spin=False):
-        os.system("cls" if os.name == "nt" else "clear")
         print("Spinning... 🔄")
         if not auto_spin:
             time.sleep(1)
