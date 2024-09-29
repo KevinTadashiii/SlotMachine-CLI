@@ -182,11 +182,11 @@ def main():
     while True:
         print("1. Play 🎲")
         print("2. Exit 👋")
-        choice = input("Enter your choice: ")
-        if choice == "1":
+        choice = input("Enter your choice (1, 2, play, exit): ").lower()
+        if choice in ["1", "play"]:
             game = Game()
             game.play()
-        elif choice == "2":
+        elif choice in ["2", "exit"]:
             print("👋 Thanks for playing! 👋")
             break
         else:
